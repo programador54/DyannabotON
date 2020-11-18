@@ -1,22 +1,23 @@
 const Discord = require('discord.js');
 module.exports = {
-	name: 'ajuda',
+	name: 'ajuda', 
 	description: 'Ajuda com os comandos',
+	aliases: ['ajuda', 'help'],
 	async execute(client, message, args) {
 		message.delete();
 		const membro = message.author;
 		const embed = new Discord.MessageEmbed()
 			.setTitle('(<a:cicle_dsn:761716250728071219>) CENTRAL DE AJUDA!')
 			.setDescription(
-				'**Escolha a Categoria**:\n<a:1_:754705497743163513> | Moderação\n<a:2_:754705941290680452> | Música\n<a:3_:754706114913763359> | Utilidade\n<a:4_:754706235038761121> | Diversão\n\n <a:b_disco:758049811323945030>・Criador: ``Linux ON#0803``'
+				'**Escolha a Categoria**:\n<a:1_:754705497743163513> | Moderação\n<a:2_:754705941290680452> | Música\n<a:3_:754706114913763359> | Utilidade\n<a:4_:754706235038761121> | Diversão\n<a:5_:754706351787081742> | Informações\n\n <a:b_disco:758049811323945030>・Criador: ``Linux ON#0803``'
 			)
 			.addField(
-				'<:lbn_Youtube:764244038009487390>・Canal Linux ON:',
+				'<:Cfn_youtube:773703306635640852>・Canal Linux ON:',
 				`[Visitar canal](https://www.youtube.com/c/LinuxON)`
 			)
 			.addField(
-				'<:Dc:761913688679776257>・Servidor de Suporte:',
-				`[Entrar no servidor](https://discord.gg/77eMtV5)`
+				'<:Driscord:773985090053079040>・Servidor de Suporte:',
+				`[Entrar no servidor](https://discord.gg/PrzVNmH3T3)`
 			)
 			.addField('<:Alegre:770203999810879510>・Me adicione no seu servidor.', `[Clique aqui](https://discord.com/api/oauth2/authorize?client_id=746008303959801897&permissions=8&scope=bot)`)
 			.setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
@@ -64,7 +65,7 @@ module.exports = {
 				let h = new Discord.MessageEmbed()
 					.setTitle('👮 ¦ Categoria Moderação')
 					.setDescription(
-						'<:seta2:758042050594603088> **banir** ``<ID>`` - Use apenas para banir usuários que não tão no servidor usando o ID deles.\n<:seta2:758042050594603088> **ban** ``<@user/ID>`` - Bani o usuário mencionado que tiver no servidor.\n<:seta2:758042050594603088> **kick** ``@user`` Expulsa o usuário mencionado.\n<:seta2:758042050594603088> **add-role** ``@role @user`` Adicona um Cargo selecionado ao membro mencionado.\n<:seta2:758042050594603088> **modlogs** `<#canal>` Defina o canal de modlogs da moderação do bot.\n<:seta2:758042050594603088> **set-prefix** `<novo prefixo>` - Defina um novo prefixo para o bot.\n<:seta2:758042050594603088> **mute** ``@user`` - Silencia um usuário nos canais de texto.\n<:seta2:758042050594603088> **clear** -  Apaga mensagens no chat de texto.\n<:seta2:758042050594603088> **remove-role** ``@role @user`` - Remove um Cargo selecionado ao membro mencionado.'
+						'<:seta2:758042050594603088> **banir** ``<ID>`` - Use apenas para banir usuários que não tão no servidor usando o ID deles.\n<:seta2:758042050594603088> **caifora** ``<@user/ID>`` - Bani o usuário mencionado que tiver no servidor.\n<:seta2:758042050594603088> **kick** ``@user`` Expulsa o usuário mencionado.\n<:seta2:758042050594603088> **add-role** ``@role @user`` Adicona um Cargo selecionado ao membro mencionado.\n<:seta2:758042050594603088> **modlogs** `<#canal>` Defina o canal de modlogs da moderação do bot.\n<:seta2:758042050594603088> **set-prefix** `<novo prefixo>` - Defina um novo prefixo para o bot.\n<:seta2:758042050594603088> **mute** ``@user`` - Silencia um usuário nos canais de texto.\n<:seta2:758042050594603088> **clear** -  Apaga mensagens no chat de texto.\n<:seta2:758042050594603088> **remove-role** ``@role @user`` - Remove um Cargo selecionado ao membro mencionado.'
 ) 
 					.setTimestamp()
 					.setThumbnail(

@@ -1,13 +1,17 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
 module.exports = {
-	name: 'block-list',
+	name: 'blacklist',
 	description: 'Tocando Músicas ',
 	async execute(client, message, args) {
 		if (message.author.id === '746007271259111534') {
 			if (args[0] === 'add') {
-				const user = message.mentions.users.first();
-				let motivo = args.slice(2.1).join(' ');
+				let splitarg = args.slice(1).join(" ").split(" / ")
+        let id = splitarg[0]
+        let motivo = splitarg[1]
+
+				let user = await client.users.fetch(`${id}`);
+				
 				let embed = new Discord.MessageEmbed()
 
 					.setTitle('<a:atento:749663083676434593> | Usuário - Bloqueado')
@@ -17,7 +21,7 @@ module.exports = {
 					)
 					.setAuthor(`${user.tag}`, user.displayAvatarURL())
 					.setColor('#FF11AC')
-					.addField('<:Users2:771715696635674674> ・Usuário:', user)
+					.addField('<:Users2:771715696635674674> ・Usuário:', `\`${user.tag}\``)
 					.addField('📝・Motivo:', motivo)
 					.setThumbnail(user.displayAvatarURL({ dynamic: true }))
 					.setTimestamp();
@@ -32,7 +36,7 @@ module.exports = {
 					.setColor('#FF11AC')
 					.setAuthor(`${user.tag}`, user.displayAvatarURL())
 					.setThumbnail(user.displayAvatarURL({ dynamic: true }))
-					.addField('<:Users2:771715696635674674>・Usuário:', user)
+					.addField('<:Users2:771715696635674674>・Usuário:', `\`${user.tag}\``)
 					.setFooter(
 						`${message.author.tag}`,
 						message.author.displayAvatarURL({ dynamic: true })
@@ -49,7 +53,7 @@ module.exports = {
 		} else {
 			return message.channel
 				.send(
-					'🔨 **|** ${message.author} Comando que só meu desenvolvedor pode utilizar!'
+					`🔨 **|** ${message.author} Comando que só meu desenvolvedor pode utilizar!`
 				)
 				.then(msg => msg.delete({ timeout: 17000 }));
 		}

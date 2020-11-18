@@ -13,8 +13,8 @@ module.exports = {
 		let level = client.db.get(`level_${user.id}`) || 0;
 		let exp = client.db.get(`xp_${user.id}`) || 0;
 		let neededXP = Math.floor(Math.pow(level / 0.1, 2));
-   let fundo = await client.db.fetch(`fundo_${user.id}`)	
-   let every = client.db
+		let fundo = await client.db.fetch(`fundo_${user.id}`);
+		let every = client.db
 			.all()
 			.filter(i => i.ID.startsWith('xp_'))
 			.sort((a, b) => b.data - a.data);
@@ -33,43 +33,25 @@ module.exports = {
 		//   });
 
 		// v5 rank card
-		if (fundo === null) {
-	const card = new canvacord.Rank()
-				.setUsername(user.username)
-				.setDiscriminator(user.discriminator)
-				.setRank(rank)
-				.setLevel(level)
-				.setCurrentXP(exp)
-				
-				.setRequiredXP(neededXP)
-				.setStatus(user.presence.status)
-				.setAvatar(user.displayAvatarURL({ format: 'png', size: 1024 }));
+		if (fundo === null)
+			fundo =
+				'https://cdn.discordapp.com/attachments/771087032604033044/778018804223574045/rank.png';
+		const card1 = new canvacord.Rank()
+			.setUsername(user.username)
+			.setDiscriminator(user.discriminator)
+			.setRank(rank)
+			.setRankColor('#E0FFFF', '#FF1493')
+			.setLevelColor('#E0FFFF', '#9400D3')
+			.setLevel(level)
+			.setCurrentXP(exp)
+			.setRequiredXP(neededXP)
+			.setStatus(user.presence.status)
+			.setBackground('IMAGE', `${fundo}`)
+			.setProgressBar('#9370DB', 'COLOR')
+			.setAvatar(user.displayAvatarURL({ format: 'png', size: 1024 }));
 
-			const img = await card.build();
+		const im = await card1.build();
 
-			return message.channel.send(new MessageAttachment(img, 'rank.png'));
-	
-		}else {
-			const card1 = new canvacord.Rank()
-				.setUsername(user.username)
-				.setDiscriminator(user.discriminator)
-				.setRank(rank)
-				.setRankColor("#E0FFFF", "#FF1493") 
-				.setLevelColor("#E0FFFF", "#9400D3") 
-				.setLevel(level)
-				.setCurrentXP(exp)
-				.setRequiredXP(neededXP)
-				.setStatus(user.presence.status)
-				.setBackground(
-					'IMAGE',
-					`${fundo}`
-				)
-				 .setProgressBar("#9370DB", "COLOR")
-				.setAvatar(user.displayAvatarURL({ format: 'png', size: 1024 }));
-
-			const im = await card1.build();
-
-			return message.channel.send(new MessageAttachment(im, 'rank.png'));
-		} 
+		return message.channel.send(new MessageAttachment(im, 'rank.png'));
 	}
-}
+};

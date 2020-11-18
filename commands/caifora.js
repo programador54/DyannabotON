@@ -1,11 +1,12 @@
 const Discord = require('discord.js');
 const logs = require('../models/logs');
 module.exports = {
-	name: 'ban',
-	description: 'Clears messages',
-
+	name: 'caifora',
+	description: 'banir membros',
 	async execute(client, message, args) {
-		await message.delete();
+	  
+		message.delete();
+
 		let aviso = new Discord.MessageEmbed();
 		aviso.setColor('#FF1493');
 		aviso.setDescription(
@@ -24,14 +25,12 @@ module.exports = {
 					}>, Eu não tenho a permissão certa.`
 				)
 				.then(msg => msg.delete({ timeout: 5000 }));
-		const log = await logs.findOne({
+		let log = await logs.findOne({
 			GuildID: message.guild.id
 		});
 
 		if (log) {
-			let canal = message.guild.channels.cache.get(`${log.logs}`);
-		 const member = await message.mentions.members.first();
-			
+			const member = message.mentions.members.first();
 			if (!member)
 				return message.channel
 					.send(
@@ -41,9 +40,10 @@ module.exports = {
 					)
 					.then(msg => msg.delete({ timeout: 19000 }));
 			let reason = args.slice(1).join(' ');
+
 			if (!reason) reason = 'Não informado';
-			member.ban(reason);
-			const embed = new Discord.MessageEmbed()
+
+			let embed = new Discord.MessageEmbed()
 				.setTitle('(<a:atento:749663083676434593>) Usuário - Banido')
 				.addField(
 					'<:Users2:771715696635674674> Usuário:',
@@ -68,7 +68,9 @@ module.exports = {
 					'https://cdn.discordapp.com/attachments/761784704109379625/771751101066248253/20201030_120213.gif'
 				)
 				.addField('<:form_dy:771743265472905227> Motivo:', reason);
-			canal.send(embed);
+
+			client.channels.cache.get(`${log.logs}`).send(embed);
+			message.guild.members.ban(member, { reason: `${reason}` });
 			message.channel.send(embed).then(msg => msg.delete({ timeout: 27000 }));
 		} else if (!log) {
 			return message.channel

@@ -16,16 +16,16 @@ module.exports = {
 		let status;
 		switch (user.presence.status) {
 			case 'online':
-				status = '<:Online:642306780788949022> Online';
+				status = '<:Online:642306780788949022> \`Online\`';
 				break;
 			case 'dnd':
-				status = '<:DND:642306779354497034> Não perturbar';
+				status = '<:DND:642306779354497034> \`Não perturbar\`';
 				break;
 			case 'idle':
-				status = '<:Idle:642306780231237642> Ausente';
+				status = '<:Idle:642306780231237642> \`Ausente\`';
 				break;
 			case 'offline':
-				status = '<:Offline:642306779539046410> Off-line/invisível';
+				status = '<:Offline:642306779539046410> \`Off-line/invisível\`';
 				break;
 		}
 
@@ -33,27 +33,27 @@ module.exports = {
 			.setTitle(
 				`<a:dndc:747296005095030804> Informações do usuário ${user.user.tag}`
 			)
-			.setColor(`#8A2BE2`)
+			.setColor(`#FF69B4`)
 			.setThumbnail(user.user.displayAvatarURL({ dynamic: true }))
-			.addField('🔖 Nome do usuário:', `\`${user.user.tag}\``)
-			.addField('🆔 ID do Discord:', `\`${user.user.id}\``)
-			.addField('📶 Status atual: ', status, true)
+			.addField('<:captacha:773959089259937842> Nome do usuário:', `\`${user.user.tag}\``)
+			.addField('<:identificador:773957546612359220> ID do Discord:', `\`${user.user.id}\``)
+			.addField('<:Status:773962364725755954> Status atual: ', status, true)
 			.addField(
-				'🖼️ Avatar link:',
-				`[Click aqui](${user.user.displayAvatarURL()})`
+				'<:Camera:773963609356369980> Avatar link:',
+				`[click aqui para baixar](${user.user.displayAvatarURL()})`
 			)
 			.addField(
-				'📆 Data de criação: ',
-				`${moment(user.user.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+				'<:Calendar:773962246854017024> Data de criação: ',
+				`${moment(user.user.createdAt).format('LLL')}`,
 				true
 			)
 			.addField(
-				'☀️ Entrou no servidor em:',
-				`${moment(user.user.joinedAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+				'<:Calendar3:773967508217659402> Entrou no servidor em:',
+				`${moment(user.user.joinedAt).format('LLL')}`,
 				true
 			)
 			.addField(
-				'💼 Cargos: ',
+				'<:Positiva:773967552811761745> Cargos: ',
 				user.roles.cache.map(role => `\`${role.name}\``).join(' ,'),
 				true
 			)

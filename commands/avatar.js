@@ -21,7 +21,7 @@ module.exports = {
 		// Se não for animado, resultará em um formato normal de imagem.
 
 		const embed = new Discord.MessageEmbed()
-			.setTitle(`<:cam:766272192659849236> | Avatar do usuário: ${user.tag}`)
+			.setTitle(`<:Camera:773963609356369980> | Avatar do usuário: ${user.tag}`)
 			.setDescription(`[clique aqui](${avatar}) para baixar a imagem`)
 			.setImage(avatar)
 			.setFooter(

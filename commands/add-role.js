@@ -42,18 +42,18 @@ module.exports = {
 
 	embed.setTitle('(<a:atento:749663083676434593>) Cargo - Adicionado');
 	embed.addField(
-		'👥 | Usuário:',
+		'<:Users2:771715696635674674> | Usuário:',
 		`<:setagem:766785344489390091>・**Tag**: \`${
 			membro.user.tag
 		}\`\n<:setagem:766785344489390091>・**ID**: \`${membro.user.id}\``
 	);
 	embed.addField(
-		'🔨 | Autor da ação:',
+		'<:coroado:771743240617459742> | Autor da ação:',
 `<:setagem:766785344489390091>・**Tag**: \`${
 			message.author.tag
 		}\`\n<:setagem:766785344489390091>・**ID**: \`${message.author.id}\``
 	);
-	embed.addField('💼 | Cargo Adicionado:', Role);
+	embed.addField('<:Positiva:773967552811761745> | Cargo Adicionado:', Role);
 	embed.setThumbnail(message.author.displayAvatarURL({dynamic: true}));
 	embed.setFooter(`${message.author.tag}`, message.author.displayAvatarURL({dynamic: true}));
 	embed.setTimestamp();

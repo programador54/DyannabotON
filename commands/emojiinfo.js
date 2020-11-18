@@ -15,7 +15,7 @@ await message.delete()
     );
   } else if (emoji.animated === true) {
     const embed = new Discord.MessageEmbed()
-   .setTitle('<:lbn_penssando:764820884367605760> | Informações sobre o emoji:')
+   .setTitle('<:w_pensando:773950457516523571> | Informações sobre o emoji:')
    .addField('🔖 Nome do emoji:', `\`${emoji.name}\``)
   .addField('💻 ID do emoji:', `\`${emoji.id}\``)
  .addField('👀 Menção do emoji:', `\`<a:${emoji.name}:${emoji.id}>\``)
@@ -27,7 +27,7 @@ await message.delete()
   message.channel.send(embed)
   } else {
 const Embed = new Discord.MessageEmbed()
-   .setTitle('<:lbn_penssando:764820884367605760> | Informações sobre o emoji:')
+   .setTitle('<:w_pensando:773950457516523571> | Informações sobre o emoji:')
    .addField('🔖 Nome do emoji:', `\`${emoji.name}\``)
   .addField('💻 ID do emoji:', `\`${emoji.id}\``)
  .addField('👀 Menção do emoji:', `\`<:${emoji.name}:${emoji.id}>\``)
