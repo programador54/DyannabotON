@@ -309,4 +309,4 @@ client.on('guildMemberAdd', async member => {
 		.setColor('#FF11AC');
 	member.guild.channels.cache.get('763940818104483861').send(embedON);
 });
-client.login(process.env.TOKEN);
+client.login(config.token);
