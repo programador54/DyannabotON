@@ -1,8 +1,14 @@
 {
-  "name": "Dyannabot",
-  "version": "1.0.0",
-  "description": "",
+  "//1": "describes your app and its dependencies",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+  "name": "hello-sqlite",
+  "version": "0.0.1",
+  "description": "A simple Node app with SQLite as a database management system, instantly up and running.",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
     "@vitalets/google-translate-api": "^4.0.0",
@@ -35,7 +41,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "node",
+    "heroku",
+    "express"],
   "author": "",
   "license": "ISC"
 }
